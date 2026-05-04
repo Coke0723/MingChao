@@ -4,7 +4,11 @@ import CharacterArtwork from "../components/CharacterArtwork";
 import { notices } from "../data/notices";
 import { findFeaturedCharacterByVersion, versionGroups } from "../data/versions";
 
-const navItems = ["首页", "版本角色", "公告情报", "攻略索引"];
+const navItems = [
+  { label: "首页", href: "#hero", sectionId: "hero" },
+  { label: "版本角色", href: "#versions", sectionId: "versions" },
+  { label: "公告 / 攻略", href: "#updates", sectionId: "updates" },
+];
 
 const guideEntries = [
   "角色强度梯度",
@@ -23,8 +27,8 @@ const tickerItems = [
 ];
 
 const sectionStops = [
-  { id: "hero", label: "首屏", sublabel: "HOME" },
-  { id: "versions", label: "版本", sublabel: "VERSIONS" },
+  { id: "hero", label: "首页", sublabel: "HOME" },
+  { id: "versions", label: "版本角色", sublabel: "VERSIONS" },
   { id: "updates", label: "公告 / 攻略", sublabel: "UPDATES" },
 ];
 
@@ -85,7 +89,7 @@ export default function HomePage() {
       <div className="absolute inset-0 -z-20 bg-ww-page" />
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,rgba(220,231,239,0.18),transparent_30%),radial-gradient(circle_at_82%_8%,rgba(111,155,186,0.16),transparent_18%),linear-gradient(180deg,rgba(255,255,255,0.03),transparent_16%)]" />
 
-      <header className="sticky top-0 z-50 border-b border-white/10 bg-slate-950/72 backdrop-blur-xl">
+      <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-slate-950/78 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-8">
           <div className="flex items-center gap-4">
             <div className="grid h-11 w-11 place-items-center rounded-full border border-white/15 bg-white/5 text-sm tracking-[0.32em] text-white">
@@ -99,24 +103,41 @@ export default function HomePage() {
             </div>
           </div>
 
-          <nav className="hidden items-center gap-7 text-sm text-slate-300 lg:flex">
-            {navItems.map((item) => (
-              <a key={item} href="#versions" className="transition hover:text-white">
-                {item}
-              </a>
-            ))}
+          <nav className="hidden items-center rounded-full border border-white/10 bg-white/[0.04] p-1 lg:flex">
+            {navItems.map((item) => {
+              const isActive = item.sectionId ? activeSection === item.sectionId : false;
+              const sharedClassName = `rounded-full px-4 py-2 text-sm transition ${
+                isActive
+                  ? "bg-white text-slate-950 shadow-[0_8px_24px_rgba(255,255,255,0.14)]"
+                  : "text-slate-300 hover:bg-white/[0.06] hover:text-white"
+              }`;
+
+              if (item.href.startsWith("/")) {
+                return (
+                  <Link key={item.label} to={item.href} className={sharedClassName}>
+                    {item.label}
+                  </Link>
+                );
+              }
+
+              return (
+                <a key={item.label} href={item.href} className={sharedClassName}>
+                  {item.label}
+                </a>
+              );
+            })}
           </nav>
 
           <a
             href="#versions"
-            className="rounded-full border border-white/15 px-4 py-2 text-sm text-white transition hover:border-white/35 hover:bg-white/5"
+            className="rounded-full border border-sky-100/20 bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.02))] px-4 py-2 text-sm text-white transition hover:border-sky-100/40 hover:bg-white/10"
           >
             查看版本角色
           </a>
         </div>
       </header>
 
-      <main className="mx-auto max-w-7xl px-5 pb-24 pt-6 md:px-8 md:pt-8">
+      <main className="mx-auto max-w-7xl px-5 pb-24 pt-28 md:px-8 md:pt-32">
         <div className="relative">
           <aside className="fixed left-5 top-1/2 z-40 hidden -translate-y-1/2 lg:block">
             <div className="w-[164px] rounded-[28px] border border-white/12 bg-slate-950/82 px-4 py-5 shadow-[0_20px_60px_rgba(0,0,0,0.38)] backdrop-blur-xl">
