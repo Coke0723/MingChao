@@ -172,11 +172,11 @@ export default function GlobalMusicPlayer() {
       <div className={`fixed bottom-5 right-5 z-50 rounded-[24px] border border-white/15 bg-slate-950/82 text-white shadow-panel backdrop-blur-xl transition-all ${isMinimized ? "w-[min(18rem,calc(100vw-2.5rem))] p-3" : "w-[min(22rem,calc(100vw-2.5rem))] p-4"}`}>
         <div className="flex items-center justify-between gap-4">
           <div>
-            <p className="text-[11px] uppercase tracking-[0.3em] text-slate-400">站点音乐</p>
+            <p className="text-[11px] uppercase tracking-[0.3em] text-slate-200">背景音乐</p>
             <p className="mt-2 text-sm font-medium text-white line-clamp-1">{currentSong.title}</p>
           </div>
           <div className="flex items-center gap-2">
-            <span className="rounded-full border border-white/10 px-3 py-2 text-[11px] uppercase tracking-[0.24em] text-slate-400">
+            <span className="rounded-full border border-white/10 px-3 py-2 text-[11px] uppercase tracking-[0.24em] text-slate-200">
               {isPlaying ? "播放中" : "已暂停"}
             </span>
             <button
@@ -247,7 +247,7 @@ export default function GlobalMusicPlayer() {
                   style={{ width: progressWidth }}
                 />
               </div>
-              <div className="mt-2 flex items-center justify-between text-xs tracking-[0.2em] text-slate-400">
+              <div className="mt-2 flex items-center justify-between text-xs tracking-[0.2em] text-slate-300">
                 <span>{formatPlayerTime(currentTime)}</span>
                 <span>{formatPlayerTime(duration)}</span>
               </div>
@@ -269,7 +269,7 @@ export default function GlobalMusicPlayer() {
                     }`}
                   >
                     <span>{song.title}</span>
-                    <span className="text-[11px] uppercase tracking-[0.24em] text-slate-400">
+                    <span className="text-[11px] uppercase tracking-[0.24em] text-slate-300">
                       {isActive ? "当前播放" : "切换"}
                     </span>
                   </button>

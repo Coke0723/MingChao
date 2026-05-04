@@ -30,6 +30,9 @@ function makeCharacter({
   imageSourcePage,
   combatNotes,
   buildFocus,
+  strengths,
+  upgradePriority,
+  teamRecommendations,
   weapons,
   echoes,
   materials,
@@ -59,6 +62,25 @@ function makeCharacter({
         `如果补图完成，这个角色页会很适合作为正式 Wiki 词条展示页。`,
       ],
     buildFocus: buildFocus ?? ["技能词条", "配队整理", "培养路线"],
+    strengths:
+      strengths ?? [
+        "适合作为当前版本的核心词条继续精修。",
+        "图片、技能、材料和配队模块都已经具备继续补完的基础。",
+        "后续可以继续扩展成更完整的角色攻略页。",
+      ],
+    upgradePriority:
+      upgradePriority ?? ["共鸣解放", "共鸣技能", "共鸣回路", "常态攻击"],
+    teamRecommendations:
+      teamRecommendations ?? [
+        {
+          name: "通用配队位",
+          summary: "当前适合先作为占位配队模块，后续继续补入真实队友与轮转逻辑。",
+        },
+        {
+          name: "开荒过渡队",
+          summary: "可继续补主C、副C、辅助三位的过渡组合与武器替代说明。",
+        },
+      ],
     note: note ?? `${patch} 角色词条已接入，后续建议继续补完真实数值与材料清单。`,
     guideVideoEmbedUrl,
     imageBaseNames,
@@ -300,6 +322,12 @@ export const versionGroups = [
         guideVideoEmbedUrl:
           "https://player.bilibili.com/player.html?isOutside=true&aid=113217082888286&bvid=BV1RqxBepEs7&cid=26052266007&p=1",
         tags: ["1.3", "辅助", "黑海岸"],
+        strengths: ["全队泛用性高，适合多种主C 队伍。", "治疗、增益和循环稳定性都很强。", "很适合做 1.x 后期辅助词条的代表角色。"],
+        upgradePriority: ["共鸣解放", "共鸣回路", "共鸣技能", "常态攻击"],
+        teamRecommendations: [
+          { name: "泛用辅助队", summary: "适合搭配站场主C 与副C，依靠治疗与团队增益稳定整轮输出。" },
+          { name: "高压环境队", summary: "在需要更高生存与容错的环境里，守岸人通常能显著提升队伍稳定度。" },
+        ],
       }),
       makeCharacter({
         slug: "youhu",
@@ -331,6 +359,12 @@ export const versionGroups = [
         guideVideoEmbedUrl:
           "https://player.bilibili.com/player.html?isOutside=true&aid=113478958456639&bvid=BV1RmU3YnEMF&cid=26759201991&p=1",
         tags: ["1.4", "湮灭", "限定角色"],
+        strengths: ["站场观感强，适合做核心主C 展示页。", "输出节奏鲜明，词条很适合写手法与循环。", "图片与视觉表现都很适合首页主推。"],
+        upgradePriority: ["共鸣解放", "共鸣技能", "常态攻击", "共鸣回路"],
+        teamRecommendations: [
+          { name: "湮灭主C 队", summary: "围绕椿站场输出构筑，优先保证副C 挂效果与辅助增益覆盖。" },
+          { name: "双输出轮转队", summary: "适合搭配短轴副C，在椿爆发与切人之间保持队伍总输出不断档。" },
+        ],
       }),
       makeCharacter({
         slug: "lumi",
@@ -389,6 +423,12 @@ export const versionGroups = [
           "https://player.bilibili.com/player.html?isOutside=true&aid=113754557650152&bvid=BV1QvrcYAESJ&cid=27655864531&p=1",
         tags: ["2.0", "冷凝", "版本主推"],
         imageSourcePage: "https://wutheringwaves.fandom.com/wiki/Carlotta",
+        strengths: ["远程主C 定位清晰，站场逻辑直观。", "版本代表性很强，适合承担 2.0 门面角色。", "很适合补冷凝体系与装备推荐的细节页。"],
+        upgradePriority: ["共鸣解放", "共鸣技能", "共鸣回路", "常态攻击"],
+        teamRecommendations: [
+          { name: "冷凝远程队", summary: "围绕珂莱塔站场与爆发期展开，优先配能提供增伤或协同的副C 与辅助。" },
+          { name: "稳态输出队", summary: "适合搭配泛用辅助，保证珂莱塔在中长轴战斗中的持续输出能力。" },
+        ],
       }),
       makeCharacter({
         slug: "roccia",
@@ -448,6 +488,12 @@ export const versionGroups = [
         guideVideoEmbedUrl:
           "https://player.bilibili.com/player.html?isOutside=true&aid=114231852667714&bvid=BV1fbZMYME8A&cid=29163914906&p=1",
         tags: ["2.2", "湮灭", "限定角色"],
+        strengths: ["角色机制辨识度高，适合扩展成专门攻略页。", "湮灭体系核心地位明显，适合写阵容搭配。", "词条很适合补操作轴与技能连段。"],
+        upgradePriority: ["共鸣技能", "共鸣解放", "共鸣回路", "常态攻击"],
+        teamRecommendations: [
+          { name: "湮灭体系队", summary: "优先搭配能提供协同输出或团队增益的角色，放大坎特蕾拉的主C 价值。" },
+          { name: "短轴爆发队", summary: "适合在关键窗口集中打伤害，强调技能与解放的连贯释放。" },
+        ],
       }),
       makeCharacter({
         slug: "rover-aero",
@@ -506,6 +552,12 @@ export const versionGroups = [
         guideVideoEmbedUrl:
           "https://player.bilibili.com/player.html?isOutside=true&aid=114667758296470&bvid=BV1ypTZzME7T&cid=30450124479&p=1",
         tags: ["2.4", "气动", "限定角色"],
+        strengths: ["视觉表现突出，立绘与页面融合度很高。", "站场主C 节奏明确，适合做高完成度角色页。", "很适合继续补技能段落和配队体系。"],
+        upgradePriority: ["共鸣解放", "常态攻击", "共鸣技能", "共鸣回路"],
+        teamRecommendations: [
+          { name: "气动主C 队", summary: "以卡提希娅作为主站场输出核心，优先搭配能稳定提供增益与协同的队友。" },
+          { name: "爆发切换队", summary: "适合通过短轴副C 补足卡提希娅真空期，让轮转更平滑。" },
+        ],
       }),
       makeCharacter({
         slug: "lupa",
@@ -655,6 +707,12 @@ export const versionGroups = [
           "https://player.bilibili.com/player.html?isOutside=true&aid=115777655084291&bvid=BV1dQBUBxEVz&cid=35069103976&p=1",
         tags: ["3.0", "衍射", "版本主推"],
         imageSourcePage: "https://wutheringwaves.fandom.com/wiki/Lynae",
+        strengths: ["3.x 阶段辨识度很高，适合作为现版本门面角色。", "立绘、配色和主题都很适合大视觉展示。", "后续很适合继续补版本阵容与毕业搭配。"],
+        upgradePriority: ["共鸣解放", "共鸣技能", "常态攻击", "共鸣回路"],
+        teamRecommendations: [
+          { name: "衍射主C 队", summary: "适合围绕琳奈构建完整主C 队，优先保证增益覆盖与输出窗口质量。" },
+          { name: "版本核心队", summary: "可作为 3.0 阶段代表阵容，后续继续补辅助位与轮转说明会很自然。" },
+        ],
       }),
       makeCharacter({
         slug: "mornye",

@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import GlobalMusicPlayer from "./components/GlobalMusicPlayer";
 import HomePage from "./pages/HomePage";
 import CharacterPage from "./pages/CharacterPage";
+import NoticesPage from "./pages/NoticesPage";
 import VersionPage from "./pages/VersionPage";
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
       <GlobalMusicPlayer />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/notices" element={<NoticesPage />} />
         <Route path="/versions/:version" element={<VersionPage />} />
         <Route path="/characters/:slug" element={<CharacterPage />} />
       </Routes>

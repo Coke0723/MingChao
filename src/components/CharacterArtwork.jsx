@@ -36,7 +36,7 @@ export default function CharacterArtwork({
   stageClassName = "min-h-[360px] p-8",
   imageClassName = "max-h-[420px] w-auto object-contain drop-shadow-[0_24px_48px_rgba(0,0,0,0.35)]",
   fallbackClassName = "w-full max-w-[320px] rounded-[26px] border border-dashed border-white/15 bg-black/15 px-6 py-10 text-center backdrop-blur",
-  badgeClassName = "absolute left-6 top-6 rounded-full border border-white/10 px-3 py-1 text-[11px] uppercase tracking-[0.28em] text-slate-400",
+  badgeClassName = "absolute left-6 top-6 rounded-full border border-white/10 px-3 py-1 text-[11px] uppercase tracking-[0.28em] text-slate-300",
   glowClassName = "absolute bottom-10 left-1/2 h-56 w-56 -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(212,226,235,0.3),rgba(255,255,255,0.02)_60%,transparent_72%)] blur-xl",
   label = "角色立绘位",
   fallbackDescription = "这里已经预留正式角色立绘位置",
