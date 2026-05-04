@@ -1,0 +1,173 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color: #eff5f8;
+  background:
+    radial-gradient(circle at top, rgba(184, 208, 223, 0.14), transparent 30%),
+    linear-gradient(180deg, #06080d 0%, #0a0d13 38%, #07090d 100%);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: "Segoe UI", "Microsoft YaHei", "PingFang SC", sans-serif;
+  background:
+    radial-gradient(circle at top, rgba(205, 222, 232, 0.08), transparent 26%),
+    linear-gradient(180deg, #06080d 0%, #0b0e15 45%, #07090d 100%);
+}
+
+::selection {
+  background: rgba(198, 217, 228, 0.3);
+}
+
+#root {
+  isolation: isolate;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.clip-corner {
+  clip-path: polygon(100% 0, 100% 100%, 0 0);
+}
+
+.ww-panel {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(7, 10, 15, 0.58);
+  backdrop-filter: blur(18px);
+}
+
+.ticker-mask {
+  position: relative;
+}
+
+.ticker-mask::before,
+.ticker-mask::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 80px;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.ticker-mask::before {
+  left: 0;
+  background: linear-gradient(90deg, rgba(6, 8, 13, 1), transparent);
+}
+
+.ticker-mask::after {
+  right: 0;
+  background: linear-gradient(270deg, rgba(6, 8, 13, 1), transparent);
+}
+
+.ticker-track {
+  animation: ticker-move 28s linear infinite;
+}
+
+.animate-rise {
+  animation: rise-in 900ms ease-out both;
+}
+
+.animate-rise-delay {
+  animation: rise-in 1100ms ease-out both;
+}
+
+.animate-fade-in {
+  animation: fade-in 1200ms ease-out both;
+}
+
+.animate-float-soft {
+  animation: float-soft 8s ease-in-out infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 6s ease-in-out infinite;
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes float-soft {
+  0%,
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+
+  50% {
+    transform: translateY(-12px) translateX(6px);
+  }
+}
+
+@keyframes pulse-slow {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.72;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes ticker-move {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track,
+  .animate-rise,
+  .animate-rise-delay,
+  .animate-fade-in,
+  .animate-float-soft,
+  .animate-pulse-slow {
+    animation: none;
+  }
+}
