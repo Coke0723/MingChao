@@ -653,6 +653,12 @@ export default function HomePage() {
             </div>
           </div>
         </section>
+
+        <footer className="mt-16 border-t border-white/10 pt-8 text-center">
+          <p className="text-xs uppercase tracking-[0.32em] text-slate-500">
+            Created by Coke0723
+          </p>
+        </footer>
       </main>
     </div>
   );
